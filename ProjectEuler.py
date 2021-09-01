@@ -77,7 +77,32 @@ What is the largest prime factor of the number 600851475143 ?
 3 = 3* 1
 24 is not a prime number, its not a perfect square.
 Prime factors are factors of a number that are, themselves, prime numbers. 
+#list all primes or number = 600851475143
+primes = []
+i = 2
+n = 600851475143
 
+while i * i <=n:
+    is_prime = True
+    for p in primes:
+        if p * p > i:
+            break
+        if i % p == 0:
+            is_prime = False
+            break
+    if is_prime:
+        primes.append(i
+    i += 1
+print(primes)
+
+#get largest
+largest_prime = 0
+for p in primes:
+    if n %. p == 0:
+       largest_prime = p
+print(largest_prime)
+                      
+OR
 def largestPrime(n):
   i = 2
   while i<n:
@@ -87,3 +112,20 @@ def largestPrime(n):
       i += 1
   return n
 print(largestPrime(600851475143))
+
+Problem 4. 
+                      
+A palindromic number reads the same both ways. The largest palindrome made from the product of two 2-digit numbers is 9009 = 91 × 99.
+Find the largest palindrome made from the product of two 3-digit numbers.                     
+# 3-digit number starts at 100 up to but not including 1000
+largest_pali = 0
+
+for a in range(100, 1000):
+    for b in range(a, 1000):
+        c = a * b
+        s = str(c)
+        if s == s[::-1]: #reverse a string
+           if c > largest_pali:
+              largest_pali = c
+print(largest_pali)
+
