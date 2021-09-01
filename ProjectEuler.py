@@ -129,3 +129,48 @@ for a in range(100, 1000):
               largest_pali = c
 print(largest_pali)
 
+Problem 5.
+2520 is the smallest number that can be divided by each of the numbers from 1 to 10 without any remainder.
+
+What is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20?
+
+GCD: Greates Common Divisor
+5 is gcd of 15 and 25
+12 is for 12 and 24
+                      
+LCM = Least Common Multiple                     
+30 is the lcm of 10 and 15                       
+24 is the lcm of 12 and 24
+                      
+            2520 = 2*2*2*3*5*7 
+             /\         
+         252   10        
+         /\    /\          
+       126(2)(5)(2)   
+       /\               
+     63 (2)               
+     /\                 
+    9 (7)               
+   /\                   
+  (3)(3)                  
+                      
+def check(n):
+   for i in range(11, 21):
+     if n % i ==0:
+       continue
+    else:
+       return True
+   return True
+                      
+                      
+x = 2520
+ while not check(x):
+  x += 2520
+print(x)
+                      
+                      
+                      
+                      
+                      
+                      
+                      
