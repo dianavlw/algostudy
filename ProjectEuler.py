@@ -35,6 +35,10 @@ for i in range(1, 1000):
     if i % 3 == 0 or i % 5 == 0:
          sum += i
 print(sum)
+Answer:  233168
+
+
+
 
 Problem 2. 
 Even Fibonacci Numbers.
@@ -58,7 +62,11 @@ for n in fib:
     sum += n
 #printing all the even fib nums
 print(sum)
-
+Answer:  4613732
+    
+    
+    
+    
 Problem 3. 
 Largest Prime Factor:
 The prime factors of 13195 are 5, 7, 13 and 29.
@@ -112,7 +120,10 @@ def largestPrime(n):
       i += 1
   return n
 print(largestPrime(600851475143))
-
+Answer:  6857
+                      
+                      
+                      
 Problem 4. 
                       
 A palindromic number reads the same both ways. The largest palindrome made from the product of two 2-digit numbers is 9009 = 91 × 99.
@@ -128,7 +139,11 @@ for a in range(100, 1000):
            if c > largest_pali:
               largest_pali = c
 print(largest_pali)
-
+Answer:  906609
+                      
+                      
+                      
+                      
 Problem 5.
 2520 is the smallest number that can be divided by each of the numbers from 1 to 10 without any remainder.
 
@@ -167,9 +182,146 @@ x = 2520
  while not check(x):
   x += 2520
 print(x)
+Answer:  232792560                      
                       
                       
+Problem 6.SUm Square difference:
+The sum of the square of the first tehn natural numebers is, 1^2+ 2^2 + ...10^2 = 385
+The square of the sum of the first ten natural numbers is, (1+2+...+10) ^2 = 3025
+Hence the difference between the sum of the squares of the first ten natural numbers and the square
+of the sum is 3025 -385 = 2640                      
+Find the difference between the sum of the squares of the first hundred natural numbers and the square of the sum.                      
                       
+sumOfSquares = 0
+for i in range(1, 101):
+    sumOfSquares = i * i
+
+squareOfSum = 0
+for i in range(1, 101):
+    squaredOfSum += i                      
+squaredOfSum = squaredOfSum * squaredOfSum
+                      
+print(squaredOfSums - sumOfSquares)                      
+                      
+                      
+sum_square = 0
+sum = 0
+square_sum = 0
+
+for i in range(1,101):
+    sum_square += i*i
+print(sum_square)
+
+for i in range(1,101):
+    sum += i
+square_sum = sum*sum
+print(square_sum)
+
+print(square_sum - sum_square)                     
+Answer:  25164150                      
+                      
+Problem 7. 10001st prime.                      
+By Listing the first six prime numbers: 2, 3, 5, 7, 11 and 13, we can see that the 6th prime is 13.
+what is the 10001st prime?
+*Prime numbers are the numbers that have only two factors, that are, 1 and the number itself.
+#Python
+number = 1
+count = 1
+while number <= 10001:
+    count += 1
+    for i in range(count - 1, 0, -1):
+        if  count % i == 0 and i != 1:
+            break
+        elif i == 1:
+            print('Number ', number, ' = ', count)
+            number += 1                      
+                      
+
+def isprime(n):
+    if n < 2: return False
+    if n < 4: return True
+    if n%2 == 0 or n%3 == 0: return False
+    for i in range(2,n):
+        if n%i == 0: return False
+        if i*i > n: return True
+
+def nth_prime(n):
+    pn = 0
+    list_of_primes = []
+    i = 1
+    while pn < n:
+        if isprime(i):
+            pn += 1
+            solution = i
+        i += 1
+    return solution
+
+print (nth_prime(10001))                     
+Answer:  104743                      
+                      
+Problem 8. Largest product in a series
+The four adjacent digits in the 1000-digit number that have the greatest product are 9 × 9 × 8 × 9 = 5832.
+7*3*1*6 = 126
+3*1*6*7 = 126
+1*6*7*1 = 42
+.
+.... 9*9*8*9 = 5832                       
+73167176531330624919225119674426574742355349194934
+96983520312774506326239578318016984801869478851843
+85861560789112949495459501737958331952853208805511
+12540698747158523863050715693290963295227443043557
+66896648950445244523161731856403098711121722383113
+62229893423380308135336276614282806444486645238749
+30358907296290491560440772390713810515859307960866
+70172427121883998797908792274921901699720888093776
+65727333001053367881220235421809751254540594752243
+52584907711670556013604839586446706324415722155397
+53697817977846174064955149290862569321978468622482
+83972241375657056057490261407972968652414535100474
+821663704844031(9*9*8*9)0008895243450658541227588666881
+16427171479924442928230863465674813919123162824586
+17866458359124566529476545682848912883142607690042
+24219022671055626321111109370544217506941658960408
+07198403850962455444362981230987879927244284909188
+84580156166097919133875499200524063689912560717606
+05886116467109405077541002256983155200055935729725
+71636269561882670428252483600823257530420752963450
+
+Find the thirteen adjacent digits in the 1000-digit number that have the greatest product. What is the value of this product?                      
+Source: https://www.youtube.com/watch?v=__Rg_3NL2Dg                      
+
+number ="73167176531330624919225119674426574742355349194934\
+96983520312774506326239578318016984801869478851843\
+85861560789112949495459501737958331952853208805511\
+12540698747158523863050715693290963295227443043557\
+66896648950445244523161731856403098711121722383113\
+62229893423380308135336276614282806444486645238749\
+30358907296290491560440772390713810515859307960866\
+70172427121883998797908792274921901699720888093776\
+65727333001053367881220235421809751254540594752243\
+52584907711670556013604839586446706324415722155397\
+53697817977846174064955149290862569321978468622482\
+83972241375657056057490261407972968652414535100474\
+82166370484403199890008895243450658541227588666881\
+16427171479924442928230863465674813919123162824586\
+17866458359124566529476545682848912883142607690042\
+24219022671055626321111109370544217506941658960408\
+07198403850962455444362981230987879927244284909188\
+84580156166097919133875499200524063689912560717606\
+05886116467109405077541002256983155200055935729725\
+71636269561882670428252483600823257530420752963450"                      
+
+largest_so_far = 0
+current = 1
+how_many_digits = 13
+for i in range(len(number) - how_many_digits):
+    for j in range(how_many_digits):
+        current *= int(number[i+j])
+    if current > largest_so_far:
+        largest_so_far = current
+    current = 1
+print(largest_so_far)
+23514624000
                       
                       
                       
