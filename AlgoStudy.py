@@ -39,7 +39,7 @@ Python Model:
     for x in L2:
       L.append(x)
       
- this takes constant time
+this takes constant time
 to build an initial list
 
 QUESTIONS:
