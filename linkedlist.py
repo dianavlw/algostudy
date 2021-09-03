@@ -1033,3 +1033,254 @@ if __name__ == '__main__':
        return dummy.next
               
               
+
+              
+              
+              
+ ------------------------------------------------------------ GET NODE VALUE ------------------------------------------------------------------                
+ Given a pointer to the head of a linked list and a specific position, determine the data value at that position. 
+ Count backwards from the tail node. 
+ The tail is at postion 0, its parent is at 1 and so on.            
+              
+ Head refers to 3 -> 2 -> 1 -> NULL
+ Position from Tail = 2
+              
+source: https://www.youtube.com/watch?v=BmkO7VEPkSo              
+Logic:              
+ptr =   0    1    2    3    4    5  
+LList = 1 -> 3 -> 9 -> 4 -> 5  NULL
+count = 5    4    3    2    1   0
+              
+              
+              
+def getNode(llist, positionFromTail):
+    # Write your code here
+    ptr = llist
+    count = 0
+    
+    while ptr != None:
+        count +=1
+        ptr = ptr.next #moved it to the last and we now assign it the head
+    ptr = llist
+    count = count -1 # count from 6 -5-4- ect
+    
+    while ptr.next != None:
+        if count == positionFromTail:
+            break
+        ptr = ptr.next
+        count -= 1
+    return ptr.data
+    
+    
+    
+    # two pointers SOLUTION
+    ptr1 = llist
+    ptr2 = llist
+    
+    #traverse to the position from the head
+    for i in range(positionFromTail):
+        ptr1 = ptr1.next
+        
+    #traverse both pointer    
+    while ptr1.next != None:
+        ptr1 = ptr1.next
+        ptr2 = ptr2.next
+            
+              
+              
+ -------------------------------------------------------- Delete duplicate-value nodes from a sorted linked list ---------------------------------------------------------------                
+ Delete duplicate-value nodes from a sorted linked list
+You are given the pointer to the head node of a sorted linked list, where the data in the nodes is in ascending order. Delete nodes and return a sorted list with each distinct value in the original list. The given head pointer may be null indicating that the list is empty.
+https://www.youtube.com/watch?v=ZfmOImyWWmk
+https://www.hackerrank.com/challenges/delete-duplicate-value-nodes-from-a-sorted-linked-list/problem?h_r=next-challenge&h_v=zen
+              
+              
+Example
+HEAD refers to the first node in the list 1 -> 2 -> 3 -> 3 -> 3 -> 3 ->  NULL.
+Remove 1 of the  data values and return  pointing to the revised list  1 -> 2 -> 3 -> NULL.             
+Sample Input
+
+STDIN   Function
+-----   --------
+1       t = 1
+5       n = 5
+1       data values = 1, 2, 2, 3, 4
+2
+2
+3
+4
+Sample Output
+
+1 2 3 4               
+
+              
+def removeDuplicates(llist):
+    # Write your code here
+    # creating a temporary pointer
+    temp = llist
+    
+    while temp.next != None:
+        if temp.data == temp.next.data:
+            temp.next = temp.next.next
+        else:
+            temp = temp.next
+            
+    return llist              
+              
+              
+ -------------------------------------------------------- Delete duplicate-value nodes from a sorted linked list ---------------------------------------------------------------                
+Cycle Detection
+A linked list is said to contain a cycle if any node is visited more than once while traversing the list.
+Given a pointer to the head of a linked list, determine if it contains a cycle.
+If it does, return 1. Otherwise, return 0.
+
+Example:
+HEAD refers to the list of nodes 1 -> 2 -> 3 -> NULL
+
+The numbers shown are the node numbers, not their data values. 
+There is no cycle in this list so return .
+
+HEAD refers to the list of nodes 1 -> 2 -> 3 -> 1 -> NULL
+
+There is a cycle where node 3 points back to node 1, so return .
+Sample Output
+
+0
+1
+Explanation
+
+The first list has no cycle, so return 0.
+The second list has a cycle, so return 1.              
+
+              
+#SOLUTION 1    
+              Linear time complexity bc you are storing the values
+def has_cycle(head):
+    res = []
+    
+    while head != None:
+        if head not in res:
+            res.append(head)
+            head = head.next
+        else:
+            return True
+    return False              
+              
+           
+#SOLUTION 2             
+slow = fast = head
+              
+while fast != None and fast.next != None:
+      slow = slow.next
+      fast = fast.next.next
+      
+      if slow == fast:
+         return True
+return False
+              
+              
+              
+ -------------------------------------------------------- Find Merge Point of Two Lists ---------------------------------------------------------------                
+https://www.hackerrank.com/challenges/find-the-merge-point-of-two-joined-linked-lists/problem
+https://www.youtube.com/watch?v=Tttrtc9ucYY
+              
+Given pointers to the head nodes of  linked lists that merge together at some point, find the node where the two lists merge. The merge point is where both lists point to the same node, i.e. they reference the same memory location. It is guaranteed that the two head nodes will be different, and neither will be NULL. If the lists share a common node, return that node's  value.
+
+Note: After the merge point, both lists will share the same node pointers.
+The diagrams below are graphical representations of the lists that input nodes  and  are connected to.
+
+Test Case 0
+
+ 1
+  \
+   2--->3--->NULL
+  /
+ 1
+Test Case 1
+
+1--->2
+      \
+       3--->Null
+      /
+     1
+Sample Output
+
+2
+3
+Explanation
+
+Test Case 0: As demonstrated in the diagram above, the merge node's data field contains the integer .
+Test Case 1: As demonstrated in the diagram above, the merge node's data field contains the integer .            
+              
+              
+  def findMergeNode(head1, head2):
+    p1 = head1
+    p2 = head2
+    
+    while 1:
+        if p1 == p2:
+            break
+        p1 = p1.next
+        p2 = p2.next
+        if p1 == None:
+            p1 = head2
+        if p2 == None:
+            p2 = head1
+    return p1.data            
+              
+ LeetCode: https://leetcode.com/problems/intersection-of-two-linked-lists/submissions/
+              
+ class Solution:
+    def getIntersectionNode(self, headA: ListNode, headB: ListNode) -> ListNode:
+        p1 = headA
+        p2 = headB
+        while p1 != p2:
+            if p1 :
+                p1 = p1.next
+            else:
+                p1 = headB
+            if p2:
+                p2 = p2.next
+            else:
+                p2 = headA
+        return p1             
+---------------------------------------------------Inserting a Node Into a Sorted Doubly Linked List-----------------------------------------------------------                
+Given a reference to the head of a doubly-linked list and an integer, DATA,
+create a new DoublyLinkedListNode object having data value DATA and insert it at the proper location to maintain the sort.             
+              
+Example:
+Head refers to the list 1 <-> 2 <-> 4 -> NULL              
+Data = 3              
+Return a reference to the new list: 1 <-> 2 <-> 3 <-> 4 -> NULL              
+Sample Input:
+STDIN   Function
+-----   --------
+1       t = 1
+4       n = 4
+1       node data values = 1, 3, 4, 10
+3
+4
+10
+5       data = 5
+              
+Sample Output:
+1 3 4 5 10              
+              
+Explanation
+
+The initial doubly linked list is: 1 <-> 3 <-> 5 <-> 10 -> NULL
+
+The doubly linked list after insertion is: 1 <-> 3 <-> 4 <-> 5 <-> 10 -> NULL                  
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
