@@ -3,10 +3,10 @@ https://en.wikipedia.org/wiki/Linked_list
   In computer science, a linked list is a linear collection of data elements whose order is not given by their physical placement in memory. 
   Instead, each element points to the next. It is a data structure consisting of a collection of nodes which together represent a sequence. 
   In its most basic form, each node contains: data, and a reference (in other words, a link) to the next node in the sequence.
-    This structure allows for efficient insertion or removal of elements from any position in the sequence during iteration.
-    More complex variants add additional links, allowing more efficient insertion or removal of nodes at arbitrary positions.
-    A drawback of linked lists is that access time is linear (and difficult to pipeline). 
-    Faster access, such as random access, is not feasible. Arrays have better cache locality compared to linked lists.
+  This structure allows for efficient insertion or removal of elements from any position in the sequence during iteration.
+  More complex variants add additional links, allowing more efficient insertion or removal of nodes at arbitrary positions.
+  A drawback of linked lists is that access time is linear (and difficult to pipeline). 
+  Faster access, such as random access, is not feasible. Arrays have better cache locality compared to linked lists.
 
 
 
@@ -420,3 +420,616 @@ class LinkedList:
             break
           print(currentNode.data)
           currentNode = currentNode.next
+
+              
+              
+              
+              
+    ------------------------------------ Delete A Node From The End Of The List ------------------------------------------------------              
+              
+Delete Matthew 
+        0              1                2   
+head-> John ------->  Ben --------->  Matthew -----> End of the List
+        Data  Next    Data  Next      Data     Next          
+                    *store in temp node
+ -Traverse to the end of the list
+ -store the last second node
+ -delete last node
+ -make the next of the temp node point to None
+ 
+             
+ From Previous :
+  
+class Node:
+  def __init__(self, data):
+      self.data = data
+      self.next = None
+class LinkedList:
+    def __init__(self, newNode):
+        self.head = None
+    
+    def insertHead(self, newNode):
+        temporaryNode = self.head
+        self.head = newNode
+        self.head.next = temproraryNode
+        del temporaryNode
+        
+        
+    def ListLength(self): # traverse the first node to the last and count the node returning the count
+        currentNode = self.head
+        length = 0
+        while currentNode is not None:
+            length += 1
+            currentNode = currentNode.next
+        return length
+      
+    #inserting position as 1, we want to insert to that location)
+    # head -->10-->20--> None || newNode-->15-->None || position--> 1
+    def insertAt(self, newNode, position):
+      if position < 0 or position > self.listLength(): #
+        print("invalid position)
+      if position 0: # if position is 0 then insert at the head
+         self.insertHead(newNode)
+          return
+        currentNode = self.head
+        currentPosition = 0
+        while True: # current node was 10 but before we advance we store the previous node
+          if currentPosition == position:
+            previousNode.next = newNode # 10
+            newNode.next = currentNode # 20
+            break
+          previousNode = currentNode #storing the 10 
+          currentNode = currentNode.next # advancing the node to the next one
+          currentPosition += 1 # advancind the position down 
+      
+      
+    def insertEnd(self, newNode):     
+        if self.head == None:
+          self.head = newNode
+        else:
+          lastNode = self.head
+          while True:
+            if lastNode.next is None:
+                break
+            lastNode = lastNode.next
+            lastNode.next = newNode    
+              
+              
+              
+    def deleteEnd(self):
+              john ben matthew
+        lastNode = self.head
+        while lastNode.next is not None:
+              previousNode = lastNode
+              lastNode = lastNode.next # advances to the next node but before we advance we need to store the previous node then reference it 
+        previousNode.next = None
+          
+              
+              
+    def printList(self):
+        currentNode = self.head
+        while True:
+          if currentNode is None:
+            break
+          print(currentNode.data)
+          currentNode = currentNode.next
+             
+              
+   
+    ------------------------------------ Delete A Node ------------------------------------------------------              
+      DELETE A NODE: https://www.hackerrank.com/challenges/delete-a-node-from-a-linked-list/problem        
+      Delete the node at a given position in a linked list and return a reference to the head node. 
+      The head is at position 0. The list may be empty after you delete the node. In that case, return a null value.        
+              
+ Constraints
+ 1 <= n <= 1000
+1 <= list[i] <= 1000 , where list[i] is the i^th element of the linked list.
+Sample Input
+
+8 (elements in the list)
+20
+6
+2
+19
+7
+4
+15
+9
+3 (delete at position 3)
+Sample Output
+
+20 6 2 7 4 15 9
+              
+ Solution: 
+ """
+ #!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+class SinglyLinkedListNode:
+    def __init__(self, node_data):
+        self.data = node_data
+        self.next = None
+
+class SinglyLinkedList:
+    def __init__(self):
+        self.head = None
+        self.tail = None
+
+    def insert_node(self, node_data):
+        node = SinglyLinkedListNode(node_data)
+
+        if not self.head:
+            self.head = node
+        else:
+            self.tail.next = node
+
+
+        self.tail = node
+
+def print_singly_linked_list(node, sep, fptr):
+    while node:
+        fptr.write(str(node.data))
+
+        node = node.next
+
+        if node:
+            fptr.write(sep)
+
+#
+# Complete the 'deleteNode' function below.
+#
+# The function is expected to return an INTEGER_SINGLY_LINKED_LIST.
+# The function accepts following parameters:
+#  1. INTEGER_SINGLY_LINKED_LIST llist
+#  2. INTEGER position
+#
+
+#
+# For your reference:
+#
+# SinglyLinkedListNode:
+#     int data
+#     SinglyLinkedListNode next
+#
+#
+
+ """             
+
+def deleteNode(llist, position):
+    # Write your code here
+    if position == 0:
+        llist = llist.next
+    else:
+        temp = llist
+        count = 1
+        while temp != None and count < position:
+            temp = temp.next
+            count += 1
+        temp.next = temp.next.next
+    return llist
+if __name__ == '__main__':              
+              
+              
+------------------------------------------------------------ Print in Reverse ------------------------------------------------------------------  
+ Print in Reverse: https://www.hackerrank.com/challenges/print-the-elements-of-a-linked-list-in-reverse/problem
+              
+ Given a pointer to the head of a singly-linked list, print each  value from the reversed list. If the given list is empty, do not print anything.          
+              
+  There are three test cases. There are no blank lines between test case output.
+
+The first linked list has 5 elements: 16 -> 12-> 4 ->2 -> 5. Printing this in reverse order produces:
+5
+2
+4
+12
+16
+
+The second linked list has 3 elements: 7 ->3 -> 9 -> NULL. Printing this in reverse order produces:
+9
+3
+7
+The third linked list has 5  elements: 5 -> 1 ->18 ->3 -> 13 -> NULL. Printing this in reverse order produces:
+13
+3
+18
+1
+5            
+              
+
+def reversePrint(llist):
+    # Write your code here
+    if llist == None:
+        return
+    reversePrint(llist.next)
+    print(llist.data)
+    
+#   5 -> 1 ->18 ->3 -> 13 -> NULL
+   head  head head..... NULL
+              then previous step we will print the data in reverse
+              
+              
+
+------------------------------------------------------------ Reverse a linked list ------------------------------------------------------------------                
+Reverse a linked list: https://www.hackerrank.com/challenges/reverse-a-linked-list/problem              
+Source: https://www.youtube.com/watch?v=By2fM4vU-dU 
+              
+Given the pointer to the head node of a linked list, change the next pointers of the nodes so that their order is reversed. The head pointer given may be null meaning that the initial list is empty.              
+Input Format
+
+The first line contains an integer , the number of test cases.
+
+Each test case has the following format:
+
+The first line contains an integer , the number of elements in the linked list.
+Each of the next  lines contains an integer, the  values of the elements in the linked list.     
+
+           
+Sample Input
+
+1
+5
+1
+2
+3
+4
+5
+Sample Output
+
+5 4 3 2 1 
+Explanation
+
+The initial linked list is: 1 ->2 ->3-> 4-> 5-> NULL
+
+The reversed linked list is: 5 ->4 ->3-> 2-> 1 -> NULL               
+              
+
+def reverse(llist):
+    # initialize three pointers
+    prev = None
+    cur = llist
+    next = llist.next
+    
+    while cur != None:
+        next = cur.next 
+         # change the direction of the nodes
+        cur.next = prev # 1 will be poiting to null
+         # shifting the nodes     
+        prev = cur 
+        cur = next 
+    llist = prev 
+    return llist 
+ 
+              
+              
+ 206. LeetCode Reverse Linked List             
+ USING TWO POINTERS : https://www.youtube.com/watch?v=G0_I-ZF0S38
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
+# Solution 1: 
+# Time: O(n) Memory: O(n)
+        prev = None
+        curr = head
+        
+        while curr:
+            nxt = curr.next
+            curr.next = prev
+            prev = curr
+            curr = nxt
+        return prev
+              
+#  Solution 2:
+
+        if not head:
+            return None
+        
+        newHead = head
+        if head.next:
+            newHead = self.reverseList(head.next)
+            head.next.next = head
+        head.next = None
+        
+        return newHead
+
+             
+              
+ ------------------------------------------------------Compare two linked lists--------------------------------------------------------------     
+ You’re given the pointer to the head nodes of two linked lists. Compare the data in the nodes of the linked lists to check if they are equal. 
+ If all data attributes are equal and the lists are the same length, return 1 . Otherwise, return 0.
+ 
+ https://www.hackerrank.com/challenges/compare-two-linked-lists/problem
+ https://www.youtube.com/watch?v=9mJxRgCmHe4
+ 
+ """           
+ #!/bin/python3
+
+import os
+import sys
+
+class SinglyLinkedListNode:
+    def __init__(self, node_data):
+        self.data = node_data
+        self.next = None
+
+class SinglyLinkedList:
+    def __init__(self):
+        self.head = None
+        self.tail = None
+
+    def insert_node(self, node_data):
+        node = SinglyLinkedListNode(node_data)
+
+        if not self.head:
+            self.head = node
+        else:
+            self.tail.next = node
+
+
+        self.tail = node
+
+def print_singly_linked_list(node, sep, fptr):
+    while node:
+        fptr.write(str(node.data))
+
+        node = node.next
+
+        if node:
+            fptr.write(sep)
+
+# Complete the compare_lists function below.
+
+#
+# For your reference:
+#
+# SinglyLinkedListNode:
+#     int data
+#     SinglyLinkedListNode next
+#
+#
+"""
+              
+           
+def compare_lists(llist1, llist2):
+    head1 = llist1
+    head2 = llist2
+
+    while head1 and head2:
+        if head1.data == head2.data:
+            head1 = head1.next
+            head2 = head2.next
+        else:
+            return 0
+    if head1 == None and head2 == None:
+        return 1
+    else:
+        return 0
+if __name__ == '__main__':             
+              
+              
+              
+              
+              
+              
+              
+              
+              
+  ------------------------------------------------------Remove Nth Node From End of List--------------------------------------------------------------              
+  Given the head of a linked list, remove the nth node from the end of the list and return its head.
+  https://leetcode.com/problems/remove-nth-node-from-end-of-list/
+              
+  Input: head = [1,2,3,4,5], n = 2
+  Output: [1,2,3,5]          
+              
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def removeNthFromEnd(self, head: Optional[ListNode], n: int) -> Optional[ListNode]:
+        dummy = ListNode(0, head)
+        left = dummy
+        right = head
+        
+        while n > 0 and right:
+            right = right.next
+            n -= 1
+        while right: 
+            left = left.next
+            right = right.next
+        
+        left.next = left.next.next
+        return dummy.next
+        
+              
+              
+              
+              
+              
+              
+------------------------------------------------------------ Add Two Numbers ------------------------------------------------------------------                
+You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order, and each of their nodes contains a single digit. 
+Add the two numbers and return the sum as a linked list.
+You may assume the two numbers do not contain any leading zero, except the number 0 itself.              
+
+https://leetcode.com/problems/add-two-numbers/              
+              
+Input: l1 = [2,4,3], l2 = [5,6,4]
+Output: [7,0,8]
+Explanation: 342 + 465 = 807.              
+              
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def addTwoNumbers(self, l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
+        dummy = ListNode()
+        carry = 0
+        
+        cur = dummy
+        while l1 or l2 or carry:
+            v1 = l1.val if l1 else 0
+            v2 = l2.val if l2 else 0
+            
+            val = v1 + v2 + carry
+            carry = val// 10
+            val = val % 10
+            
+            cur.next = ListNode(val)
+            
+            cur = cur.next
+            l1 = l1.next if l1 else None
+            l2 = l2.next if l2 else None
+            
+        return dummy.next
+                          
+              
+              
+------------------------------------------------------------ Merge two sorted linked lists ------------------------------------------------------------------                
+Merge two sorted linked lists
+https://programs.programmingoneonone.com/2021/05/hackerrank-merge-two-sorted-linked-lists-solution.html (this solution was cleared to me)
+              
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+class SinglyLinkedListNode:
+    def __init__(self, node_data):
+        self.data = node_data
+        self.next = None
+
+class SinglyLinkedList:
+    def __init__(self):
+        self.head = None
+        self.tail = None
+
+    def insert_node(self, node_data):
+        node = SinglyLinkedListNode(node_data)
+
+        if not self.head:
+            self.head = node
+        else:
+            self.tail.next = node
+
+
+        self.tail = node
+
+def print_singly_linked_list(node, sep, fptr):
+    while node:
+        fptr.write(str(node.data))
+
+        node = node.next
+
+        if node:
+            fptr.write(sep)
+
+# Complete the mergeLists function below.
+
+#
+# For your reference:
+#
+# SinglyLinkedListNode:
+#     int data
+#     SinglyLinkedListNode next
+#
+#
+def mergeLists(head1, head2):
+    if head1 == None:
+        return head2
+    if head1 == None:
+        return head2
+    
+    if head1.data <= head2.data:
+        head = head1
+        head1 = head1.next
+    else:
+        head = head2
+        head2 = head2.next
+    
+    current = head
+    while head1 != None or head2 != None:
+        if head1 == None:
+            current.next = head2
+            break
+        if head2 == None:
+            current.next = head1
+            break
+        if head1.data <= head2.data:
+            current.next = head1
+            head1 = head1.next
+        else:
+            current.next = head2
+            head2 = head2.next
+        current = current.next
+    return head 
+    # if head1 == None and head2 == None:
+    #     return None
+    # if head1 == None:
+    #     return head2
+    # if head2 == None:
+    #     return head1
+    # if head1.data < head2.data:
+    #     temp = head1
+    #     temp.next = mergeLists(head1.next, head2)
+    # else:
+    #     temp = head2
+    #     temp.next = mergeLists(head1, head2.next)
+    # return temp
+if __name__ == '__main__':              
+              
+              
+              
+    LEET CODE: 21- MergeTwo Sorted List
+    Faster time:
+    class Solution:
+    def mergeTwoLists(self, l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
+        if not l1: return l2
+        if not l2: return l1
+        dummy = ListNode()
+        anchor = dummy
+        while l1 and l2:
+            if l1.val <= l2.val:
+                anchor.next = l1
+                l1 = l1.next
+            else:
+                anchor.next = l2
+                l2 = l2.next
+            anchor = anchor.next
+        anchor.next = l1 if l1 else l2
+        return dummy.next
+
+    long runtime:
+              
+    def mergeTwoList(self, l1, l2):
+        dummy = ListNode()
+        tail = dummy
+        
+        while l1 and l2:
+              if l1.val < l2.val
+                  tail.next = l1
+                  l1 = l1.mext
+              else:
+                  tail.next = l1
+              tail = tail.next
+       if l1:
+          tail.next = l1
+       elif l2:
+              tail.next = l2
+       return dummy.next
+              
+              
