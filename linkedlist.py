@@ -1247,6 +1247,7 @@ Test Case 1: As demonstrated in the diagram above, the merge node's data field c
 ---------------------------------------------------Inserting a Node Into a Sorted Doubly Linked List-----------------------------------------------------------                
 Given a reference to the head of a doubly-linked list and an integer, DATA,
 create a new DoublyLinkedListNode object having data value DATA and insert it at the proper location to maintain the sort.             
+https://www.hackerrank.com/challenges/insert-a-node-into-a-sorted-doubly-linked-list/problem
               
 Example:
 Head refers to the list 1 <-> 2 <-> 4 -> NULL              
@@ -1271,6 +1272,106 @@ Explanation
 The initial doubly linked list is: 1 <-> 3 <-> 5 <-> 10 -> NULL
 
 The doubly linked list after insertion is: 1 <-> 3 <-> 4 <-> 5 <-> 10 -> NULL                  
+              
+           
+ def sortedInsert(llist, data):
+    # Write your code here
+    node = DoublyLinkedListNode(data)
+    
+    if llist == None:
+        llist = node
+        #empty list
+    elif data < llist.data:
+        node.next = llist
+        llist.prev = node
+        llist = node
+       #before head
+    else:
+        cur = llist
+        while cur.next != None and cur.data < data:
+            cur = cur.next
+            #end of list
+        if cur.next == None and cur.data < data:
+            cur.next = node
+            node.prev = cur
+        else:
+            previous = cur.prev
+            previous.next = node
+            node.prev = previous
+            node.next = cur
+            cur.prev = node
+    return llist    
+             
+              
+              
+              
+              
+--------------------------------------------------- Reverse a doubly linked list-----------------------------------------------------------                
+              
+Given the pointer to the head node of a doubly linked list, reverse the order of the nodes in place.
+That is, change the next and prev pointers of the nodes so that the direction of the list is reversed. 
+Return a reference to the head node of the reversed list.
+              
+Note: The head node might be NULL to indicate that the list is empty.           
+Function Description
+
+Complete the reverse function in the editor below.
+
+reverse has the following parameter(s):
+
+DoublyLinkedListNode head: a reference to the head of a DoublyLinkedList
+Returns
+- DoublyLinkedListNode: a reference to the head of the reversed list
+
+Input Format
+
+The first line contains an integer t, the number of test cases.
+
+Each test case is of the following format:
+
+The first line contains an integer n, the number of elements in the linked list.
+The next n lines contain an integer each denoting an element of the linked list.  
+              
+Sample Input
+
+1
+4
+1
+2
+3
+4
+Sample Output
+
+4 3 2 1 
+Explanation
+
+The initial doubly linked list is: 1 <-> 2 <-> 3 <-> 4 -> NULL 
+
+The reversed doubly linked list is:  4 <-> 3 <-> 2 <-> 1 -> NULL              
+              
+def reverse(llist):
+    # Write your code here
+    while llist.next != None:
+        #swap pointers
+        llist.next, llist.prev, llist = llist.prev, llist.next, llist.next 
+        #changes to the tail 
+    llist.next , llist.prev = llist.prev, None
+    return llist              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
               
               
               
