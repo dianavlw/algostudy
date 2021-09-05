@@ -4,8 +4,9 @@
 
 You probably got the hint on what I'm studying for, its true I started to prep for Google.✨
 
-Will I succeed in getting hired? I dont know but you bet Im studying my butt so I can say 
-this opportunity wasnt wasted.
+Will I succeed in getting hired? I dont know but you bet Im studying my butt💪🏼
+
+This opportunity wasnt wasted 👩🏻‍💻
 
 I will be doing all sorts of algorithm problems and this is mainly for me but if you found
 this helpful go ahead and I hope I helped.
