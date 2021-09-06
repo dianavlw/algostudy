@@ -5,7 +5,7 @@ def reverseArray(a):
     # Write your code here
     return a[::-1]
 
--------------------------------------------- 2D Array - DS-------------------------------------------- 
+-------------------------------------------- 2D Array - Hourglass -------------------------------------------- 
 https://www.hackerrank.com/challenges/2d-array/problem
   Read Constraints:
     note: This means that the smallest possible value will be -9*7 (as there are 7 elements in an hourglass)
@@ -34,6 +34,24 @@ def hourglassSum(arr):
             
             maxsum = max(hourglass, maxsum)
     return maxsum
+  
+  def hourglassSum(arr):
+    max =float('inf)
+    
+    for i in range(1,5):
+        for j in range(1,5):
+               sum =0 #taking the sum of evey indiv not total, max sum vs max of the hourglass
+               sum +=arr[i][j]
+               sum+= arr[i-1][j-1] + arr[i-1][j] + arr[i-1][j+1] #a+b+c
+               sum+= arr[i+1][j-1] + arr[i+1][j] + arr[i+1][j+1]# bottom row
+               
+               if sum > max:
+                  max = sum
+   retrun max
+               
+               
+               
+               
 -------------------------------------------- Arrays - Left Rotation. -------------------------------------------- 
 A left rotation operation on an array of size N shifts each of the array's elements 1 unit to the left. 
 Given an integer, d, rotate the array that many steps left and return the result.
