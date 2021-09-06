@@ -1,4 +1,4 @@
-https://en.wikipedia.org/wiki/Linked_list
+""" https://en.wikipedia.org/wiki/Linked_list
   
   In computer science, a linked list is a linear collection of data elements whose order is not given by their physical placement in memory. 
   Instead, each element points to the next. It is a data structure consisting of a collection of nodes which together represent a sequence. 
@@ -11,7 +11,7 @@ https://en.wikipedia.org/wiki/Linked_list
 
 
 Data Structures: Singly Linked List HEAD NODE
-
+"""
 class Node:
   def __init__(self, data):
       self.data = data
@@ -54,10 +54,10 @@ linkeList.printList()
 
 
  ------------------------------------ PRINT NODES ------------------------------------------------------     
-
+"""
 Print the Elements of a Linked List   
 https://www.hackerrank.com/challenges/print-the-elements-of-a-linked-list/problem   
-
+"""
 #!/bin/python3
 
 import math
@@ -109,7 +109,7 @@ if __name__ == '__main__':
   
 
  ------------------------------------ INSERT NEW NODE AT THE TAIL OF THE LIST  ------------------------------------------------------     
-  
+ """ 
   
 Insert a Node at the Tail of a Linked List:
 
@@ -145,7 +145,8 @@ Sample Output
 164
 530
 474
-
+"""
+  
 #!/bin/python3
 
 import math
@@ -201,7 +202,7 @@ if __name__ == '__main__':
     
  
  ------------------------------------ INSERT NEW NODE HEAD OF THE LIST ------------------------------------------------------        
-    
+ """   
 Insert a node at the head of a linked list
 
 Given a pointer to the head of a linked list, insert a new node before the head. 
@@ -240,7 +241,7 @@ Sample Output
 484
 383    
     
-    
+ """   
 #!/bin/python3
 
 import math
@@ -293,7 +294,7 @@ if __name__ == '__main__':
     
 
  ------------------------------------ INSERT NEW NODE ------------------------------------------------------     
-    
+ """   
 Insert a New Node As The Head Node: https://www.youtube.com/watch?v=nH_nhfEZ7hc&list=PLzjoZGHG3J8vdUH75YPqmO7lbQl_M-xXo&index=4
 Insert "Matthey"
 
@@ -304,7 +305,7 @@ Head ----> Matthew ----> John ----> Ben
 - Preserve the current head node in a temp node , ake a new node as the head node, make the next of your new node point to the temporary node
 
 From Previous :
-  
+"""  
 class Node:
   def __init__(self, data):
       self.data = data
@@ -339,7 +340,7 @@ class LinkedList:
           currentNode = currentNode.next
 
  ------------------------------------ INSERT NEW NODE Between TWO NODES ------------------------------------------------------         
-Insert A New Node In Between Two Nodes
+""" Insert A New Node In Between Two Nodes
 Insert 15
 
 head-> 10 ------->  20
@@ -358,7 +359,8 @@ source: https://www.youtube.com/watch?v=Z0uqXuzCQTo&list=PLzjoZGHG3J8vdUH75YPqmO
 
 
 From Previous :
-  
+""" 
+
 class Node:
   def __init__(self, data):
       self.data = data
@@ -426,7 +428,7 @@ class LinkedList:
               
               
     ------------------------------------ Delete A Node From The End Of The List ------------------------------------------------------              
-              
+"""              
 Delete Matthew 
         0              1                2   
 head-> John ------->  Ben --------->  Matthew -----> End of the List
@@ -439,7 +441,8 @@ head-> John ------->  Ben --------->  Matthew -----> End of the List
  
              
  From Previous :
-  
+"""
+              
 class Node:
   def __init__(self, data):
       self.data = data
@@ -517,7 +520,7 @@ class LinkedList:
               
    
     ------------------------------------ Delete A Node ------------------------------------------------------              
-      DELETE A NODE: https://www.hackerrank.com/challenges/delete-a-node-from-a-linked-list/problem        
+"""      DELETE A NODE: https://www.hackerrank.com/challenges/delete-a-node-from-a-linked-list/problem        
       Delete the node at a given position in a linked list and return a reference to the head node. 
       The head is at position 0. The list may be empty after you delete the node. In that case, return a null value.        
               
@@ -541,7 +544,7 @@ Sample Output
 20 6 2 7 4 15 9
               
  Solution: 
- """
+
  #!/bin/python3
 
 import math
@@ -616,7 +619,7 @@ if __name__ == '__main__':
               
               
 ------------------------------------------------------------ Print in Reverse ------------------------------------------------------------------  
- Print in Reverse: https://www.hackerrank.com/challenges/print-the-elements-of-a-linked-list-in-reverse/problem
+"""  Print in Reverse: https://www.hackerrank.com/challenges/print-the-elements-of-a-linked-list-in-reverse/problem
               
  Given a pointer to the head of a singly-linked list, print each  value from the reversed list. If the given list is empty, do not print anything.          
               
@@ -640,7 +643,7 @@ The third linked list has 5  elements: 5 -> 1 ->18 ->3 -> 13 -> NULL. Printing t
 1
 5            
               
-
+""" 
 def reversePrint(llist):
     # Write your code here
     if llist == None:
@@ -655,7 +658,7 @@ def reversePrint(llist):
               
 
 ------------------------------------------------------------ Reverse a linked list ------------------------------------------------------------------                
-Reverse a linked list: https://www.hackerrank.com/challenges/reverse-a-linked-list/problem              
+"""Reverse a linked list: https://www.hackerrank.com/challenges/reverse-a-linked-list/problem              
 Source: https://www.youtube.com/watch?v=By2fM4vU-dU 
               
 Given the pointer to the head node of a linked list, change the next pointers of the nodes so that their order is reversed. The head pointer given may be null meaning that the initial list is empty.              
@@ -687,7 +690,7 @@ The initial linked list is: 1 ->2 ->3-> 4-> 5-> NULL
 
 The reversed linked list is: 5 ->4 ->3-> 2-> 1 -> NULL               
               
-
+"""
 def reverse(llist):
     # initialize three pointers
     prev = None
@@ -705,7 +708,7 @@ def reverse(llist):
     return llist 
  
               
-              
+ """             
  206. LeetCode Reverse Linked List             
  USING TWO POINTERS : https://www.youtube.com/watch?v=G0_I-ZF0S38
 # Definition for singly-linked list.
@@ -716,6 +719,7 @@ def reverse(llist):
 class Solution:
     def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
 # Solution 1: 
+"""
 # Time: O(n) Memory: O(n)
         prev = None
         curr = head
@@ -743,7 +747,7 @@ class Solution:
              
               
  ------------------------------------------------------Compare two linked lists--------------------------------------------------------------     
- You’re given the pointer to the head nodes of two linked lists. Compare the data in the nodes of the linked lists to check if they are equal. 
+ """ You’re given the pointer to the head nodes of two linked lists. Compare the data in the nodes of the linked lists to check if they are equal. 
  If all data attributes are equal and the lists are the same length, return 1 . Otherwise, return 0.
  
  https://www.hackerrank.com/challenges/compare-two-linked-lists/problem
@@ -797,7 +801,7 @@ def print_singly_linked_list(node, sep, fptr):
 #
 """
               
-           
+"""           
 def compare_lists(llist1, llist2):
     head1 = llist1
     head2 = llist2
@@ -823,12 +827,12 @@ if __name__ == '__main__':
               
               
   ------------------------------------------------------Remove Nth Node From End of List--------------------------------------------------------------              
-  Given the head of a linked list, remove the nth node from the end of the list and return its head.
+"""  Given the head of a linked list, remove the nth node from the end of the list and return its head.
   https://leetcode.com/problems/remove-nth-node-from-end-of-list/
               
   Input: head = [1,2,3,4,5], n = 2
   Output: [1,2,3,5]          
-              
+"""              
 # Definition for singly-linked list.
 # class ListNode:
 #     def __init__(self, val=0, next=None):
@@ -857,7 +861,7 @@ class Solution:
               
               
 ------------------------------------------------------------ Add Two Numbers ------------------------------------------------------------------                
-You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order, and each of their nodes contains a single digit. 
+""" You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order, and each of their nodes contains a single digit. 
 Add the two numbers and return the sum as a linked list.
 You may assume the two numbers do not contain any leading zero, except the number 0 itself.              
 
@@ -866,7 +870,7 @@ https://leetcode.com/problems/add-two-numbers/
 Input: l1 = [2,4,3], l2 = [5,6,4]
 Output: [7,0,8]
 Explanation: 342 + 465 = 807.              
-              
+"""               
 # Definition for singly-linked list.
 # class ListNode:
 #     def __init__(self, val=0, next=None):
@@ -897,9 +901,9 @@ class Solution:
               
               
 ------------------------------------------------------------ Merge two sorted linked lists ------------------------------------------------------------------                
-Merge two sorted linked lists
+"""" Merge two sorted linked lists
 https://programs.programmingoneonone.com/2021/05/hackerrank-merge-two-sorted-linked-lists-solution.html (this solution was cleared to me)
-              
+ """"             
 #!/bin/python3
 
 import math
@@ -996,6 +1000,7 @@ if __name__ == '__main__':
               
     LEET CODE: 21- MergeTwo Sorted List
     Faster time:
+              
     class Solution:
     def mergeTwoLists(self, l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
         if not l1: return l2
@@ -1038,7 +1043,7 @@ if __name__ == '__main__':
               
               
  ------------------------------------------------------------ GET NODE VALUE ------------------------------------------------------------------                
- Given a pointer to the head of a linked list and a specific position, determine the data value at that position. 
+"""  Given a pointer to the head of a linked list and a specific position, determine the data value at that position. 
  Count backwards from the tail node. 
  The tail is at postion 0, its parent is at 1 and so on.            
               
@@ -1052,7 +1057,7 @@ LList = 1 -> 3 -> 9 -> 4 -> 5  NULL
 count = 5    4    3    2    1   0
               
               
-              
+"""               
 def getNode(llist, positionFromTail):
     # Write your code here
     ptr = llist
@@ -1089,7 +1094,7 @@ def getNode(llist, positionFromTail):
               
               
  -------------------------------------------------------- Delete duplicate-value nodes from a sorted linked list ---------------------------------------------------------------                
- Delete duplicate-value nodes from a sorted linked list
+"""  Delete duplicate-value nodes from a sorted linked list
 You are given the pointer to the head node of a sorted linked list, where the data in the nodes is in ascending order. Delete nodes and return a sorted list with each distinct value in the original list. The given head pointer may be null indicating that the list is empty.
 https://www.youtube.com/watch?v=ZfmOImyWWmk
 https://www.hackerrank.com/challenges/delete-duplicate-value-nodes-from-a-sorted-linked-list/problem?h_r=next-challenge&h_v=zen
@@ -1113,7 +1118,7 @@ Sample Output
 
 1 2 3 4               
 
-              
+ """              
 def removeDuplicates(llist):
     # Write your code here
     # creating a temporary pointer
@@ -1129,7 +1134,7 @@ def removeDuplicates(llist):
               
               
  -------------------------------------------------------- Delete duplicate-value nodes from a sorted linked list ---------------------------------------------------------------                
-Cycle Detection
+""" Cycle Detection
 A linked list is said to contain a cycle if any node is visited more than once while traversing the list.
 Given a pointer to the head of a linked list, determine if it contains a cycle.
 If it does, return 1. Otherwise, return 0.
@@ -1152,7 +1157,7 @@ Explanation
 The first list has no cycle, so return 0.
 The second list has a cycle, so return 1.              
 
-              
+""""               
 #SOLUTION 1    
               Linear time complexity bc you are storing the values
 def has_cycle(head):
@@ -1181,7 +1186,7 @@ return False
               
               
  -------------------------------------------------------- Find Merge Point of Two Lists ---------------------------------------------------------------                
-https://www.hackerrank.com/challenges/find-the-merge-point-of-two-joined-linked-lists/problem
+"""https://www.hackerrank.com/challenges/find-the-merge-point-of-two-joined-linked-lists/problem
 https://www.youtube.com/watch?v=Tttrtc9ucYY
               
 Given pointers to the head nodes of  linked lists that merge together at some point, find the node where the two lists merge. The merge point is where both lists point to the same node, i.e. they reference the same memory location. It is guaranteed that the two head nodes will be different, and neither will be NULL. If the lists share a common node, return that node's  value.
@@ -1211,7 +1216,7 @@ Explanation
 
 Test Case 0: As demonstrated in the diagram above, the merge node's data field contains the integer .
 Test Case 1: As demonstrated in the diagram above, the merge node's data field contains the integer .            
-              
+"""              
               
   def findMergeNode(head1, head2):
     p1 = head1
@@ -1227,9 +1232,9 @@ Test Case 1: As demonstrated in the diagram above, the merge node's data field c
         if p2 == None:
             p2 = head1
     return p1.data            
-              
+ """             
  LeetCode: https://leetcode.com/problems/intersection-of-two-linked-lists/submissions/
-              
+     """         
  class Solution:
     def getIntersectionNode(self, headA: ListNode, headB: ListNode) -> ListNode:
         p1 = headA
@@ -1245,7 +1250,7 @@ Test Case 1: As demonstrated in the diagram above, the merge node's data field c
                 p2 = headA
         return p1             
 ---------------------------------------------------Inserting a Node Into a Sorted Doubly Linked List-----------------------------------------------------------                
-Given a reference to the head of a doubly-linked list and an integer, DATA,
+""" Given a reference to the head of a doubly-linked list and an integer, DATA,
 create a new DoublyLinkedListNode object having data value DATA and insert it at the proper location to maintain the sort.             
 https://www.hackerrank.com/challenges/insert-a-node-into-a-sorted-doubly-linked-list/problem
               
@@ -1273,7 +1278,7 @@ The initial doubly linked list is: 1 <-> 3 <-> 5 <-> 10 -> NULL
 
 The doubly linked list after insertion is: 1 <-> 3 <-> 4 <-> 5 <-> 10 -> NULL                  
               
-           
+"""           
  def sortedInsert(llist, data):
     # Write your code here
     node = DoublyLinkedListNode(data)
@@ -1307,7 +1312,7 @@ The doubly linked list after insertion is: 1 <-> 3 <-> 4 <-> 5 <-> 10 -> NULL
               
               
 --------------------------------------------------- Reverse a doubly linked list-----------------------------------------------------------                
-              
+"""              
 Given the pointer to the head node of a doubly linked list, reverse the order of the nodes in place.
 That is, change the next and prev pointers of the nodes so that the direction of the list is reversed. 
 Return a reference to the head node of the reversed list.
@@ -1348,7 +1353,7 @@ Explanation
 The initial doubly linked list is: 1 <-> 2 <-> 3 <-> 4 -> NULL 
 
 The reversed doubly linked list is:  4 <-> 3 <-> 2 <-> 1 -> NULL              
-              
+"""              
 def reverse(llist):
     # Write your code here
     while llist.next != None:
@@ -1360,28 +1365,4 @@ def reverse(llist):
               
               
               
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
+         
