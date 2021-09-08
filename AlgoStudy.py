@@ -1,4 +1,49 @@
 
+
+-------------------------------- Number of ways to Traversee Graph --------------------------------
+"""
+#RECURSIVE:
+Time: O(2^(n+m))
+Space: O(n+m)
+	n = width
+	m = height
+"""
+# SOLUTION 1
+
+def numberOfWaysToTraverseGraph(width, height):
+	if width == 1 or height == 1:
+		return 1
+	return numberOfWaysToTraverseGraph(width - 1, height) + numberOfWaysToTraverseGraph(width, height -1)
+--------------------------------
+"""
+#DYNAMIC PROGRAMMING
+Time: O(n*m) loop through all rows and col
+Space: O(n*m) data is being stored
+"""	
+# SOLUTION 2
+
+#DYNAMIC PROGRAMMING
+Time: O(n*m) loop through all rows and col
+Space: O(n*m) data is being stored
+	
+def numberOfWaysToTraverseGraph(width, height):
+	numberOfWays = [[0 for _ in range(width +1] for _ in range(height + 1)]
+	
+	for w in range(1, width + 1):
+ 	    for h in range(1, height + 1):				  
+		if w ==1 or h == 1:
+		  numberOfWays[h][w] =1
+		else:
+		  waysLeft = numberOfWays[h][w-1]
+		  waysUp = numberOfWays[h-1][w]
+		  numberOfWays[h][w] = waysLeft + waysUp
+	return numberOfWays[h][w]
+					  
+ --------------------------------------- ALGORITHMS ---------------------------------------
+
+
+
+"""
 MIT OpenCourseWare: https://www.youtube.com/watch?v=Kg4bqzAqRBM&list=PLUl4u3cNGP61Oq3tWYp6V_F-5jb5L2iHb&index=3
 https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-006-introduction-to-algorithms-fall-2011/lecture-notes/
 https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-006-introduction-to-algorithms-fall-2011/lecture-videos/MIT6_006F11_lec02_orig.pdf
@@ -120,7 +165,7 @@ We can reduce it to O(log n) by using binary search. Finding a specific item in 
     # Space: O(1)
     def binarySearch(array, target):
     return binarySearchHelper(array, target, 0, len(array)-1)
-
+"""
 def binarySearchHelper(array, target, left, right):
 	while left <= right:
 		middle = (left + right) // 2
@@ -178,6 +223,7 @@ def insertion_sort(arr):
 print("Sorted array:")
 print(insertion_sort([37, 23, 0, 31, 22, 17, 12, 72, 31, 46, 100, 88, 54]))
  
+"""	
 # Code contributed by Mohit Gupta_OMG
 		
   data n^2 for both
@@ -256,13 +302,72 @@ increase_key(S,x,k): increase the value of element x's key to new value k
     right(i) = 2i + 1: return index of node's right child
   
     
+ """ 
   
   
   
   
   
-  
-  
+  -------------------- A love Letter ----------------------
+""""
+This is from Pramp: I thought it was going to be a much simpler algorithm but no once I took a look
+at the actual result I realized I knew so little on ascii so once again this is from PRAMP.COM
+
+Anonymous Love Letter
+You have written an anonymous love letter and you don’t want your handwriting to be recognized. 
+Since you don’t have a printer within reach, you are trying to write this letter by copying and pasting characters from a newspaper.
+
+Hints:
+This demo question if fairly simple. Ready for our real interview problems? Get Started.
+If your peer is stuck, ask how would you know if you can write L by using the letters in N only. Try to get them to emulate the naive algorithm to this supply & demand problem and then to formalize it.
+If you peer uses a hash table, make sure they understand what hashing means and what it involves. Then ask what can be a little more efficient. If it doesn’t ring a bell, ask what else do we know about these characters that would help us to use something similar to hashing, only more basic and efficient.
+Checking if 256 character counts are 0 after each and every character scanned in N is not a good practice, if your peer does that try to give hints towards a simpler approach instead, like the one showed with charCount.
+Sorting and searching are an overkill and should be avoided when the linear solution is that simple.
+Any solution that takes more than linear O(n+m) runtime is not acceptable as complete.
+
+SOLUTION::
+Given a string L representing the letter and a string N representing the newspaper, return true if the L can be written entirely from N and false otherwise. The letter includes only ascii characters.
+Anonymous Love Letter
+L can be written by characters from N, if and only if every character in L is included in N at least by the same number of occurrences. 
+To determine that, we should count the number of occurrences for each character in L and determine if we have all of them, at least at the same quantity in N. 
+A good approach to do this is using a hash table. The hash key would be the character, and the hash value would be the number of occurrences counted so far.
+
+Since all characters are ascii we can avoid the hash table and use a simple array of 256 integers, that we’ll name charMap. 
+Every index in charMap will hold the number of occurrences of the character represented by its ascii code.
+Since N is most likely much longer than L, we start with counting the number of character occurrences in it first. 
+That way, we’ll be able to stop processing N once we find all of L's characters in it, and reduce computational costs.
+
+After counting all character occurrences in L, we scan N and for each character, reduce its count on charMap if it is larger than 0. 
+If all counts in charMap are zero at some point, we return true. Otherwise, if we are done scanning N and at least one count is not 0, we return false.
+
+Pseudocode:
+
+function isLoveLetterReproducible(L, M):
+   charMap = []
+   charCount = 0
+
+   for i from 0 to L.length:
+      charCode = int(L.charAt(i)) 
+      if (charMap[charCode] == 0):
+         charCount++
+      charMap[charCode]++
+
+   for i from 0 to N.length:
+      charCode = int(N.charAt(i))
+      if (charMap[charCode] > 0):
+         charMap[charCode]--
+         if (charMap[charCode] == 0):
+            charCount--
+      if (charCount == 0):
+         return true
+
+   return false
+Time Complexity: In the worst case we scan all of L and N linearly. For each character we execute a constant number of operations. 
+Therefore, if m and n are the lengths of L and N, the runtime complexity is linear O(n+m).
+
+Space Complexity: Using the variable charCode is only to make the pseudocode above clearer and can be avoided (by using the value directly). 
+Other than that, since we use an array of constant size (256) and a constant number of variable, the space complexity is O(1).
+""""
   
   
   
