@@ -1,3 +1,4 @@
+"""
 https://www.hackerrank.com/domains/data-structures?filters%5Bsubdomains%5D%5B%5D=arrays
   
 -------------------------------------------- 2D Array - Hourglass -------------------------------------------- 
@@ -15,7 +16,8 @@ Sample Input
 Sample Output
 
 19
-
+"""
+# https://www.youtube.com/watch?v=J1aQ9JN4vZY
 def hourglassSum(arr):
     # Write your code here
     maxsum = -99
@@ -29,7 +31,7 @@ def hourglassSum(arr):
             
             maxsum = max(hourglass, maxsum)
     return maxsum
-  
+# SOLUTION 2.   
   def hourglassSum(arr):
     max =float('inf)
     
@@ -43,5 +45,5 @@ def hourglassSum(arr):
                if sum > max:
                   max = sum
    retrun max
-               
+
                
