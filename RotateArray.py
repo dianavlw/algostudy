@@ -3,7 +3,8 @@ Rotate Array:
 Given an array, rotate the array to the right by k steps, where k is non-negative.
 https://leetcode.com/problems/rotate-array/
 https://leetcode.com/explore/interview/card/top-interview-questions-easy/92/array/646/
-
+https://www.youtube.com/watch?v=gmu0RA5_zxs
+https://www.youtube.com/watch?v=8kyZPizZzWc
 
 Let n = 7n=7 and k = 3k=3.
 
