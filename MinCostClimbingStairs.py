@@ -20,6 +20,18 @@ min= 100,2=
 so far its looking like this:
 [1,100, 2, 3...] we keep doing until we ended up with 6 our min cost output is 6
 """
+# SOLUTION 1:
+class Solution:
+    def minCostClimbingStairs(self, cost: List[int]) -> int:
+        n = len(cost)
+        dp = [0] * (n + 1)  # dp[i] is minimum cost to reach to i_th floor
+        for i in range(2, n + 1):
+            jumpOneStep = dp[i - 1] + cost[i - 1]  # Minimum cost if we jump 1 step from floor (i-1)_th to i_th floor
+            jumpTwoStep = dp[i - 2] + cost[i - 2]  # Minimum cost if we jump 2 steps from floor (i-2)_th to i_th floor
+            dp[i] = min(jumpOneStep, jumpTwoStep)
+        return dp[n]
+
+# SOLUTION 2:
 
 class Solution:
     def minCostClimbingStairs(self, cost: List[int]) -> int:
