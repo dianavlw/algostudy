@@ -18,8 +18,22 @@ Input: nums1 = [4,9,5], nums2 = [9,4,9,8,4]
 Output: [9,4]
 Explanation: [4,9] is also accepted.
 """
-
-
+#SOLUTION 1.
+class Solution(object):
+def intersection(self, nums1, nums2):
+    """
+    :type nums1: List[int]
+    :type nums2: List[int]
+    :rtype: List[int]
+    """
+    res = []
+    for i in nums1:
+        if i not in res and i in nums2:
+            res.append(i)
+    
+    return res
+   
+#SOLUTION 2.
 class Solution:
     def intersection(self, nums1: List[int], nums2: List[int]) -> List[int]:
         d = {}
