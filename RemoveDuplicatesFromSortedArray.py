@@ -21,8 +21,24 @@ Explanation: Your function should return k = 2, with the first two elements of n
 It does not matter what you leave beyond the returned k (hence they are underscores).
 
 """
+#SOLUTION 1.
+        l = 1
+        for r in range(1, len(nums)):
+            if nums[r] != nums[r-1]:
+                nums[l] = nums[r]
+                l += 1
+        return l
+"""             0, 1, 2 3 4 5 6 . .
+        nums = [0,0,1,1,1,2,2,3,3,4]
+                  l(not unique) so move l+=1
+                  r will move and if num is unique l will replace the current one its on with it
+               r-1  
+               r will go to the end of the array and once its done we look at where L stands return 
+               index 5 
 
+"""
 
+#SOLUTION 2.
 class Solution:
     def removeDuplicates(self, nums: List[int]) -> int:
         i = 0
