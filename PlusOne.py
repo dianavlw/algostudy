@@ -19,10 +19,42 @@ Thus, the result should be [1,2,4].
 
 class Solution(object):
     def plusOne(self, digits):
-        if digits[-1] == 9:
-            if len(digits) == 1:  # Already a 9
-                return [1, 0]
-            return self.plusOne(digits[:-1]) + [0]
-        else:
-            digits[-1] += 1
-        return digits
+
+        digits = digits[::-1]
+        one, i = 1, 0
+        
+        while one:
+            if i < len(digits):
+                if digits[i] == 9:
+                    digits[i] = 0
+                else:
+                    digits[i] += 1
+                    one = 0
+            else:
+                digits.append(1)
+                one = 0
+            i += 1
+        return digits[::-1]
+       
+#SOLUTION 2.    
+#         dig_len = len(digits)
+#         for i in reversed(range(dig_len)):
+#             digits[i] +=1
+#             if digits[i] < 10:
+#                 return digits
+#             else:
+#                 digits[i] = 0
+
+#         digits.insert(0,1)
+#         return digits   
+        
+        
+#SOLUTION 3:
+        # if digits[-1] == 9:
+        #     if len(digits) == 1:  # Already a 9
+        #         return [1, 0]
+        #     return self.plusOne(digits[:-1]) + [0]
+        # else:
+        #     digits[-1] += 1
+        # return digits
+
