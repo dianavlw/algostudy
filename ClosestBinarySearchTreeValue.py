@@ -24,9 +24,36 @@ class Solution:
                 r = root.val
             root = root.left if target < root.val else root.right
         return r
+#OR 
+    def closestValue(self, root: Optional[TreeNode], target: float) -> int:
+        closest = root.val
+        while root:
+            if abs(root.val - target) < abs(closest - target):
+                closest = root.val
+            if root.val > target:
+                root = root.left
+            else:
+                root = root.right
+        return closest    
+
+# SOLUTION RECURSION:        
+        return self.binary_search(root, target, root.val)
+        
+    def binary_search(self, root, target, closest):
+        if not root:
+            return closest
+        
+        if abs(root.val - target) < abs(closest - target):
+            closest = root.val 
+        if root.val > target:
+            return self.binary_search(root.left, target, closest)
+        else:
+            return self.binary_search(root.right, target, closest)
+        
+        
+
     
-    
-    #SOLUTION 2:
+    #SOLUTION 3:
         self.closest = float('inf')
         
         def helper(root, value):
