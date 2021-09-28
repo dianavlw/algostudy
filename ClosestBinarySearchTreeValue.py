@@ -4,6 +4,9 @@ Given the root of a binary search tree and a target value, return the value in t
 
 Input: root = [4,2,5,1,3], target = 3.714286
 Output: 4
+Time: O(log(N))
+Space: O(log(N))
+
 """
 
 # Definition for a binary tree node.
@@ -15,7 +18,6 @@ Output: 4
 class Solution:
     def closestValue(self, root: Optional[TreeNode], target: float) -> int:
         #SOLUTION 1:
-            def closestValue(self, root, target):
         r = root.val
         while root:
             if abs(root.val - target) < abs(r - target):
