@@ -15,3 +15,15 @@
     
         helper(0, len(s)-1, s)
   
+# class solution:
+#   def reverseString(self, s):
+
+#     def helper(start, end, ls):
+#       if start > end:
+#         return
+
+#       ls[start], ls[end] = ls[end], ls[start]
+#       return helper(start +1, end-1, ls)
+
+#     helper(0,len(s)-1, s)
+    
