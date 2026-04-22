@@ -53,14 +53,29 @@ def count_possible_sum(nums, target):
         possible_sums.update(new_sums)
     return len(possible_sums)
     
-            
     
 """
+
   4. Count Factors
   """
+def count_factors(n):
+    count = 0
+    i = 1
+
+    while i *i <= n:
+        if n % i == 0:
+            count += 1
+            if i != n // i:
+                count += 1
+        i += 1
+    return count 
+
+
   """
   5. Largest Factor Less than n
   """
+
+
   """
   6. Sum of Factors
   """
