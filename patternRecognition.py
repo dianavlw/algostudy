@@ -9,6 +9,9 @@ target = 10
 -> output : 8
 """
 
+"""
+1. Closest Sum <= Target
+"""
 def closets_sum(nums, target):
     possible_sums = {0}
   # keep track of the sums start at 0
@@ -25,7 +28,7 @@ def closets_sum(nums, target):
   2. Can you reach the Target?
   """
 def can_reach_target(nums, target):
-    possible_sums{0}
+    possible_sums={0}
 
     for num in nums:
       new_sums = set()
@@ -38,7 +41,21 @@ def can_reach_target(nums, target):
   """
   3. Count Possible Sums <= Target
   """
-  """
+
+def count_possible_sum(nums, target):
+    possible_sums={0}
+
+    for num in nums:
+        new_sum = set()
+        for curr in possible_sums:
+            if curr + num <= target:
+                new_sums.add(curr + num)
+        possible_sums.update(new_sums)
+    return len(possible_sums)
+    
+            
+    
+"""
   4. Count Factors
   """
   """
