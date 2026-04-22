@@ -87,3 +87,14 @@ def largest_factor_less_than_n(n):
   """
   6. Sum of Factors
   """
+def sun_of_factors(n):
+    total = 0
+    i= 1
+
+while i * i <=n:
+    if n % i == 0:
+        total += i
+        if i != n// i:
+            total += n // i
+    i += 1
+return total 
