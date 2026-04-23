@@ -98,3 +98,49 @@ while i * i <=n:
             total += n // i
     i += 1
 return total 
+
+
+"""
+Frequency map template
+"""
+def count_freq(nuns):
+    freq = {}
+
+    for num in nuns:
+        if num in freq:
+            freq[num] += 1
+        else:
+            freq[num] = 1
+    return freq
+
+
+"""
+two sum template
+nums = [1, 2, 3]
+target = 4
+"""
+def two_sum(nums, target):
+    seen = {} # keep track of nums we looped
+
+   for i, n in enumerate(nums):
+       possible_num = target - num
+       if possible_num in seen:
+           return [seen[possible_num], i]
+        seen[n] =i
+    reuturn []
+
+
+"""
+"""
+
+
+"""
+"""
+
+
+"""
+"""
+
+
+"""
+"""
