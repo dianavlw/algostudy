@@ -119,6 +119,7 @@ two sum template
 nums = [1, 2, 3]
 target = 4
 """
+
 def two_sum(nums, target):
     seen = {} # keep track of nums we looped
 
@@ -128,7 +129,6 @@ def two_sum(nums, target):
            return [seen[possible_num], i]
         seen[n] =i
     reuturn []
-
 
 """
 """
