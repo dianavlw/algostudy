@@ -130,17 +130,45 @@ def two_sum(nums, target):
         seen[n] =i
     reuturn []
 
-"""
-"""
+
+# first occurence
+def first_occurence(nums, target):
+    dict = {}
+    for i, n in enumerate(nums):
+        if n == target:
+            return i
+        dict[n] == i
+    return -1
+
+#last occurence 
+def last_occurence(nums, target):
+    last = -1
+    for i, n in enumerate: 
+        if n == target:
+            last = i
+    return last
+
+#count_occurence
+def count_occ(nums, target):
+    count = 0
+    for n in nums:
+        if n == target:
+            count += 1
+    return count 
+
+#fid all indicies of target
+def findAllIndicies(nuns, target):
+    result = []
+    for i, n in enumerate(nums):
+        if n == target:
+            result.append(i)
+    return result 
 
 
-"""
-"""
+    
 
 
-"""
-"""
 
 
-"""
-"""
+
+
