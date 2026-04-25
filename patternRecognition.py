@@ -191,7 +191,7 @@ def subarraySum(nums, k):
         
         
         
-    
+#maxSubArray    
 def maxSubArray(nums):
     cur_sum = 0
     max_sum = float('-inf)
@@ -204,8 +204,14 @@ def maxSubArray(nums):
             cur_sum = 0
     return max_sum 
     
+#643. Maximum Average Subarray I
 
-
+    def findMaxAverage(self, nums: List[int], k: int) -> float:
+        curr_sum = max_sum = sum(nums[:k])
+        for i in range(len(nums)-k):
+            curr_sum += nums[i+k] - nums[i]
+            max_sum = max(max_sum, curr_sum)
+        return max_sum /k
 
 
 
