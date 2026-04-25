@@ -203,6 +203,17 @@ def maxSubArray(nums):
         if cur_sum < 0:
             cur_sum = 0
     return max_sum 
+#OR
+    def maxSubArray(self, nums: List[int]) -> int:
+        curr_sum = 0 
+        max_sub = nums[0]
+
+        for n in nums:
+            if curr_sum < 0:
+                curr_sum = 0
+            curr_sum+= n
+            max_sub = max(max_sub, curr_sum)
+        return max_sub
     
 #643. Maximum Average Subarray I
 
