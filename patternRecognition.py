@@ -164,6 +164,34 @@ def findAllIndicies(nuns, target):
             result.append(i)
     return result 
 
+# Subarray sum equals k 
+#problem : given an array nums and an integer k, return how many continuos subarrays sum to k. 
+# nums = [1, 2, 3]
+# target = 3
+# [1, 2] = 3
+#[3] = 3
+# output = 2
+
+def subarraySum(nums, k):
+    prefix_count = {0: 1}
+    curr_sum = 0
+    count = 0
+
+    for n in nums:
+        curr_sum += n
+
+        need = curr_sum - k
+
+        if need in prefix_count:
+            count += prefix_count[need]
+
+        prefix_count[curr_sum] = prefix_count.get(curr_sum, 0) + 1
+
+    return count
+        
+        
+        
+    
 
     
 
