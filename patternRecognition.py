@@ -226,9 +226,59 @@ def maxSubArray(nums):
 
 
 
+#https://www.hackerrank.com/contests/software-engineer-prep-kit/challenges/maximum-non-overlapping-intervals/problem?isFullScreen=true
+# Maximum number of non-overlapping intervals
 
+def maxNonOver(meetings):
+    meetings.sort(key=get_num)
+    count = 0
+    last_num = float("-inf")
+
+    for start, end in meetings:
+        if start >= last_num:
+            count += 1
+            last_num = end
+    return count
+
+def get_num(meeting):
+    return meeting[1]
 
     
+#435. merge Intervals
+
+def merge(intervals):
+    intervals.sort()
+    if intervals == []
+        return []
+    result =[]
+    
+# [[1, 3], [2,6],[8,10],[15,18]]
+result = [[1,3]]
+
+for interval in intervals:
+    if result = [] or result result[1][-1] < interval[0]:
+        result.append(interval)
+    else:
+        result[-1][1] = max(result[-1][1], interval[1])
+return result
+    
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     
 
 
