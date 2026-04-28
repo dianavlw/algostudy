@@ -12,15 +12,17 @@ target = 10
 """
 1. Closest Sum <= Target
 """
-def closets_sum(nums, target):
-    possible_sums = {0}
-  # keep track of the sums start at 0
+def closest_sum(nums, target):
+    possible_sums = {0}  # start with sum = 0
+
     for num in nums:
-      new_sums = set() #only use once
-      for curr in possible_sums:
-        if curr + nums <= target:
-            new_sums.add(curr + num)
-      possible_sums.update(new_sums)
+        new_sums = set()  # sums formed using current num
+        for curr in possible_sums:
+            if curr + num <= target:
+                new_sums.add(curr + num)
+
+        possible_sums.update(new_sums)
+
     return max(possible_sums)
 
   
