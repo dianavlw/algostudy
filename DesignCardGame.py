@@ -79,3 +79,38 @@ class CardGames:
                 winners.append(i)
 
         return winners
+
+
+if __name__ == "__main__":
+    # Test case 1
+    print("============== Test 1 ==============")
+    players1 = 3
+    deck1 = 52
+    print("Player number: ", players1)
+    print("Deck size:", deck1)
+    test1 = CardGames(players1, deck1)
+    rslt1 = test1.drawAndCompare()
+    print("Winner Index: ", rslt1)
+    print("Players' scores: ", test1.users_score)
+
+    # Test case 2
+    print("============== Test 2 ==============")
+    players2 = 4
+    deck2 = 52
+    print("Player number: ", players2)
+    print("Deck size: ", deck2)
+    test2 = CardGames(players2, deck2)
+    rslt2 = test2.drawAndCompare()
+    print("Winner Index: ", rslt2)
+    print("Players' scores: ", test2.users_score)
+
+    # Test case 3
+    print("============== Test 3 ==============")
+    players3 = 5
+    deck3 = 68
+    print("Player number: ", players3)
+    print("Deck size: ", deck3)
+    test3 = CardGames(players3, deck3)
+    rslt3 = test3.drawAndCompare()
+    print("Winner Index: ", rslt3)
+    print("Players' scores: ", test3.users_score)
