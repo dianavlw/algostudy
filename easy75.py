@@ -33,4 +33,8 @@ class Solution:
         return str1[:a]
 
         
-      
+sol = Solution()
+
+print(sol.gcdOfStrings("ABCABC", "ABC"))   # Expected: "ABC"
+print(sol.gcdOfStrings("ABABAB", "ABAB"))  # Expected: "AB"
+print(sol.gcdOfStrings("LEET", "CODE"))    # Expected: ""      
