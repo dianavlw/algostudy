@@ -45,3 +45,75 @@ sol = Solution()
 print(sol.gcdOfStrings("ABCABC", "ABC"))   # Expected: "ABC"
 print(sol.gcdOfStrings("ABABAB", "ABAB"))  # Expected: "AB"
 print(sol.gcdOfStrings("LEET", "CODE"))    # Expected: ""      
+
+
+#1431 Kids with the Greatest Number of Candies
+
+class Solution: 
+    def kidsWithCandies(candies, extraCandies):
+        maxCandies = max(candies)
+        result = []
+
+        for i in range(len(candies)):
+            if candies[i] + extraCandies >= maxCandies:
+                result.append(True)
+            else:
+                result.append(False)
+        return True
+
+
+#605. Can Place Flowers
+
+class Solution:
+    def canPlantFlowers(flowerbed, n):
+        count = 0
+        length = len(flowerbed)
+
+        for i in range(length):
+            if (flowerbed[i] == 0 and (i == 0 or flowerbed[i-1] == 0) and (i == length-1 or flowerbed[i + 1 ] == 0):
+                flowerbed[i] = 1
+                coumt += 1
+            if count >= n:
+                return True
+        return count >= n
+
+#second solution: neetcode
+
+class Solution:
+    f = [0] + flowerbed + [0]
+
+    for i in range(1, len(f)-1):
+        if f[i-1] == 0 and f[i] ==0 and f[i+1] == 0:
+            f[i] = 1
+            n -= 1
+    return n <=0
+
+# 345 Reverse vowels of a string
+
+class Solution:
+    def reverseVowels(s):
+        vowels = set("aeiouAEIOU")
+        s = list(s)
+
+        l, r = 0, len(s)-1
+        while l < r:
+            if s[l] not in vowels:
+                l += 1
+            elif s[r] not in vowels:
+                r -= 1
+            else:
+                s[l], s[r] = s[r], s[l]
+                l += 1
+                r -= 1
+        return ''.join(s)
+
+
+
+
+
+
+
+
+
+
+
