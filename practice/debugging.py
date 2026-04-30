@@ -33,7 +33,7 @@ class FraudDetector:
         # return the ticket with the highest createdAt value
         latest_ticket = None
         for ticket in self.tickets:
-            if ticket["loanId"] = loan_id:
+            if ticket["loanId"] == loan_id:
                 if latest_ticket is None or ticket["createdAt"] > latest_ticket["createdAt"]:
                     latest_ticket = ticket
         return latest_ticket
