@@ -31,11 +31,12 @@ class FraudDetector:
     """
     def get_latest_ticket(self, loan_id):
         # return the ticket with the highest createdAt value
-        
-        loan_tickets = []
+        latest_ticket = None
         for ticket in self.tickets:
-            if ticket["loanId"] == loan_id:
-                loan_tickets.append(ticket)
+            if ticket["loanId"] = loan_id:
+                if latest_ticket is None or ticket["createdAt"] > latest_ticket["createdAt"]:
+                    latest_ticket = ticket
+        return latest_ticket
 
 
     def is_fraudulent(self, loan_id):
