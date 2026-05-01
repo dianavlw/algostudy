@@ -1,5 +1,5 @@
--------------------------- Permutations --------------------------
- """
+#-------------------------- Permutations --------------------------
+"""
     47. Permutations II
     Given a collection of numbers, nums, that might contain duplicates, return all possible unique permutations in any order.
     
@@ -29,8 +29,9 @@
             count[n] += 1
 """
 
--------------------------- SOLUTION --------------------------
+#-------------------------- SOLUTION --------------------------
 #SOLUTION 1. 
+
 class Solution(object):
     def permuteUnique(self, nums):
         

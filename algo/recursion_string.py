@@ -1,4 +1,4 @@
-  class Solution:
+class Solution:
     def reverseString(self, s):
         """
         :type s: List[str]
