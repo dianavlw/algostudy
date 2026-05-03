@@ -21,6 +21,8 @@ employee1= Employee("Eugune", "Manager")
 employee2= Employee("Squidward", "Cashier")
 employee3= Employee("Spongebob", "Cook")
 
+print(Employee.is_valid_position("Rocket Scientist"))
+
 print(employee1.get_info())
 print(employee2.get_info())
 print(employee3.get_info())
