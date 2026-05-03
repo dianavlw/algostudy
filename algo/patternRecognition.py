@@ -304,7 +304,7 @@ def pthFactor(n, p):
 
     i = 1
     #we start at 1 b/c 0 is not a valid divisor
-    while i * i <= n:
+    while i * i <= n: #“What numbers should I test as possible factors?” not “How many elements are there?” (while i < len(n))
         # 1 * 1 <=n
         if n % i == 0:
             #10 % 1 == 0
@@ -314,7 +314,7 @@ def pthFactor(n, p):
                 #small[1]
                 large.append(n // i)
                 #10//1
-                #large[10]
+                #large,[10]
         i += 1
 
     factors = small + large[::-1]
@@ -327,7 +327,7 @@ def pthFactor(n, p):
 
 
 """
-his problem is asking:
+this problem is asking:
 
 Given task sizes, pick some tasks so their total is as large as possible without going over processingCapacity.
 

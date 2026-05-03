@@ -38,3 +38,37 @@ car.stop()
 motorcycle= Motorcycle()
 motorcycle.go()
 motorcycle.stop()
+
+
+# go() is required in all vehicles 
+
+from abc import ABC, abstractmethod
+#ex. 1
+class Vehicle(ABC):
+    @abstractmethod
+    def go(self):
+        pass
+
+class Car(Vehicle):
+    def go(self):
+        return "Driving"
+
+class Bike(Vehicle):
+    def go(self):
+        return "Riding"
+
+
+#ex.2
+
+class PaymentStrategy(ABC):
+    @abstractmethod
+    def pay(self, amount):
+        pass
+
+class CreditCard(PaymentStrategy):
+    def pay(self, amount):
+        print("Paid with card")
+
+class PayPal(PaymentStrategy):
+    def pay(self, amount):
+        print("Paid with PayPal")
