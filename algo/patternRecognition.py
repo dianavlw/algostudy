@@ -435,8 +435,62 @@ def getMinimumSum(arr):
 
     
 
+#target 
+#target = 6
+#nums [1, 2, 3, 4, 6]
+
+
+left = 0
+right = len(nums) -1
+
+while left< right:
+    curr_sum = nums[left] + nums[right]:
+    if target == curr_sum:
+        print(f"{nums[left]}, {nums[right]}")
+    else:
+        if curr_sum > target:
+            right -= 1
+        else:
+            left += 1
+
+# move duplicates
+nums = [0,0,1,1,1,1,2,3,3,4]
+
+if not nums:
+    print(0)
+
+j = 1
+for i in range(1, len(nums)):
+    if nums[i] == nums[j]:
+        j += 1
+    else:
+        nums[i] = nums[j]
+print(j+1)
 
 
 
+nums = [1, 2, 3]
+k = 3
 
+prefix_count = {0:1}
+current_sum = 0
+cout = 0
 
+for nums in nums:
+    current_sum+= 1
+    if curr_sum - k in prefix_count:
+        count += prefix_count[current_sum-k]
+    prefix_count[current_sum] = prefix_count.get(current_sum, 0) + 1
+
+print(count)
+
+#sliding window
+
+nums = [2, 1, 5, 1, 3, 2]
+k = 3
+max_sum = 0
+current_sum = sum(nums[:k])
+for i in range(len(nums)-k):
+    current_sum = current_sum - nums[i] + nums[i + k]
+    max_sum = max(max_sum, current_sum)
+    
